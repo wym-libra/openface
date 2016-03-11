@@ -29,6 +29,11 @@ class FaceInfo:
         self.img_path = img_path  # string
         self.class_id = class_id  # int
 
+class Face():
+    def __init__(self, name, area, landmarks):
+        self.area = area
+        self.landmarks = landmarks
+        self.name = name
 
 class FaceCenter():
     __metaclass__ = ABCMeta
@@ -42,11 +47,7 @@ class FaceCenter():
         pass
 
     @abstractmethod
-    def train(self, image, name):
-        pass
-
-    @abstractmethod
-    def trainDir(self, dir_path):
+    def addFace(self, image, name):
         pass
 
     @abstractmethod

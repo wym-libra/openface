@@ -54,7 +54,8 @@ class ClassifierOf(FaceClassifier):
         super(ClassifierOf, self).__init__(dir_path)
         self._log = log_center.make_logger(__name__, logging.INFO)
         self._face_db = faceapi.database.make_db_manager(dir_path)
-        self.updateDB()
+        self._svm = None
+        #self.updateDB()
 
     def updateDB(self):
         self._db_dict = {}
@@ -79,10 +80,13 @@ class ClassifierOf(FaceClassifier):
             return
 
         (X, y) = d
-        self._svm = GridSearchCV(SVC(C=1), param_grid, cv=5).fit(X, y)
+        self._svm = GridSearchCV(SVC(C=1), param_grid, cv=3).fit(X, y)
         # self._log.info("train svm: {}".format(self._svm))
 
     def predict(self, image):
+        if self._svm is None:
+            self.updateDB()
+
         if self._svm is None:
             self._log.warn("self._svm is None")
             return None

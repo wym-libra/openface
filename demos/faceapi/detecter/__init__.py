@@ -11,17 +11,6 @@ Created on: 2016/1/14
 import os
 from abc import ABCMeta, abstractmethod
 
-"""
-8888888b.            .d888 d8b
-888  "Y88b          d88P"  Y8P
-888    888          888
-888    888  .d88b.  888888 888 88888b.   .d88b.  .d8888b
-888    888 d8P  Y8b 888    888 888 "88b d8P  Y8b 88K
-888    888 88888888 888    888 888  888 88888888 "Y8888b.
-888  .d88P Y8b.     888    888 888  888 Y8b.          X88
-8888888P"   "Y8888  888    888 888  888  "Y8888   88888P'
-"""
-
 
 DIR_PATH = os.path.dirname(os.path.realpath(__file__))
 
@@ -62,3 +51,5 @@ class FaceDetector():
 def make_detector():
     from faceapi.detecter.openface import FaceDetectorOf
     return FaceDetectorOf()
+    #from faceapi.detecter.detector_opencv import FaceDetectorOPENCV
+    #return FaceDetectorOPENCV()

@@ -29,6 +29,7 @@ import faceapi
 modelDir = os.path.join(faceapi.BASE_DIR, '..', '..', 'models')
 dlibModelDir = os.path.join(modelDir, 'dlib')
 openfaceModelDir = os.path.join(modelDir, 'openface')
+opencvModelDir = os.path.join(modelDir, 'opencv')
 
 parser = argparse.ArgumentParser()
 parser.add_argument(
